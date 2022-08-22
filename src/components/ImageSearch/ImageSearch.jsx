@@ -52,6 +52,9 @@ class ImageSearch extends Component {
   }
 
   changeSearch = ({ search }) => {
+    if (search === this.state.search) {
+      return;
+    }
     this.setState({ search, images: [] });
   };
 
@@ -83,6 +86,7 @@ class ImageSearch extends Component {
     const { changeSearch, loadMore, closeModal, showModal } = this;
 
     const noInfo = !images.length && search && !isLoading && !error;
+
     const buttonLoadMore = images.length > 0;
 
     return (
